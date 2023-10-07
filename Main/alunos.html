@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylealunos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col-xs-9">
+							<h2>Escola de Condução- Alunos</h2>
+						</div>
+						<div class="col-xs-3">
+							<a href="#editarAluno" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a href="#deleteAluno" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a href="#addAluno" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar novo aluno</span></a>				
+						</div>
+					</div>
+				</div>
+				<table class="table table-striped table-hover" id="mostrarAlunos">
+					<thead>
+						<tr>
+							<th>Numero</th>
+							<th>Nome</th>
+							<th>Curso que frequenta</th>
+							<th>Email</th>
+						</tr>
+				</table>
+			</div>
+		</div>   
+		<a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-house" viewBox="0 1 20 20">
+			<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+		</svg></a>  </a>     
+    </div>
+	<!-- Edit Modal HTML -->
+	<div id="addAluno" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">						
+					<h4 class="modal-title">Adicionar Aluno</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<div class="form-group">
+						<label>Nome</label>
+						<input type="text" id="nomeAluno" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Curso que frequenta</label>
+						<input type="text"id="cursoAluno" class="form-control" required></input>
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" id="emailAluno" class="form-control" required>
+					</div>				
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input type="submit" class="btn btn-success" value="Adicionar" id="inserirAluno">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Edit Modal HTML -->
+	<div id="editarAluno" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">						
+					<h4 class="modal-title">Editar Aluno</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">	
+					<div class="form-group">
+						<label>Numero de Aluno</label>
+						<input type="number"  id="numeroAlunoMudar" class="form-control" required>
+					</div>				
+					<div class="form-group">
+						<label>Nome</label>
+						<input type="text" id="MudaNome" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Curso que frequenta</label>
+						<input type="text" id="MudaCurso" class="form-control" required>
+					</div>	
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" id="MudaEmail" class="form-control" required>
+					</div>			
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input type="submit" id="muda" class="btn btn-info" value="Guardar">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Delete Modal HTML -->
+	<div id="deleteAluno" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="form-group" style="text-align: center;">
+					<label>Numero
+					<input id="numeroAlunoEliminar" class="form-control" required></label>
+				</div>	
+				<div class="modal-body">					
+					<p>Tem a certeza que pretende apagar este aluno?</p>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input id="eliminaAluno" class="btn btn-danger" value="Apagar">
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="inserealuno.js"></script>
+</body>
+</html>
